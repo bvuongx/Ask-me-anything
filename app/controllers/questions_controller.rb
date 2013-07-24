@@ -9,13 +9,15 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(params[:question])
-    if @question.save
-      flash[:notice] = "Question has been created."
-      redirect_to @question
-    else
-      # nothing, yet
-    end
+  if @question.save
+    flash[:notice] = "Question has been created."
+    redirect_to @question
+  else
+    flash[:alert] = "Question has not been created."
+    render :action => "new"
   end
+end
+
 
   def show
     @question = Question.find(params[:id])
