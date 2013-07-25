@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :question do
-    name "Example question"
+    inquiry "Example question"
   end
 end

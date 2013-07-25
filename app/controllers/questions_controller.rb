@@ -10,6 +10,11 @@ before_filter :find_question, :only => [:show,
     @questions = Question.all
   end
 
+
+  def show
+#    @question = Question.find(params[:id])
+  end
+
   def new
     @question = Question.new
   end
@@ -25,9 +30,7 @@ before_filter :find_question, :only => [:show,
     end
   end
 
-  def show
-    @question = Question.find(params[:id])
-  end
+
 
   def edit
     @question = Question.find(params[:id])
@@ -58,5 +61,9 @@ private
     flash[:alert] = "The question you were looking" +
     " for could not be found."
     redirect_to questions_path
+  end
+
+  def find_question
+    @question = Question.find(params[:id])
   end
 end

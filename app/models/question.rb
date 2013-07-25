@@ -1,5 +1,9 @@
 class Question < ActiveRecord::Base
-  attr_accessible :description, :name
+  attr_accessible :answer, :inquiry
 
-  validates :name, :presence => true
+  has_and_belongs_to_many :users
+
+  validates :inquiry, :presence => true
+
+
 end

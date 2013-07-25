@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature "Deleting questions" do
   scenario "Deleting a question" do
-    Factory(:question, :name => "TextMate 2")
+    Factory(:question, :inquiry => "TextMate 2")
     visit "/"
     click_link "TextMate 2"
     click_link "Delete Question"

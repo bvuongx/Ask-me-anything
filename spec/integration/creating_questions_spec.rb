@@ -8,20 +8,20 @@ feature 'Creating Questions' do
     end
 
     scenario "can create a question" do
-      fill_in 'Name', :with => 'TextMate 2'
+      fill_in 'Inquiry', :with => 'TextMate 2'
       click_button 'Create Question'
       page.should have_content('Question has been created.')
 
-      question = Question.find_by_name("TextMate 2")
+      question = Question.find_by_inquiry("TextMate 2")
       page.current_url.should == question_url(question)
       title = "TextMate 2 - Questions - Ask Me Anything"
   #   find("title").should have_content(title)
     end
 
-    scenario "can not create a question without a name" do
+    scenario "can not create a question without a inquiry" do
       click_button 'Create Question'
       page.should have_content("Question has not been created.")
-      page.should have_content("Name can't be blank")
+      page.should have_content("Inquiry can't be blank")
     end
 
 end
