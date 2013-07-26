@@ -18,6 +18,9 @@
 <% flash.each do |key, value| %>
   <div class='flash' id= '<%= key %>'>
     <%= value %>
+  <nav>
+  <%= link_to "Sign up", new_user_registration_path %>
+  </nav>
   </div>
 <% end %>
 
